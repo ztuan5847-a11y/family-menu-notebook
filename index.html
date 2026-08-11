@@ -6,6 +6,52 @@
 <title>家庭菜单小程序</title>
 <style>
 :root{--ink:#3f3a32;--paper:#fffdf7;--line:#bcd4e6;--red:#dd756b;--green:#789c79;--yellow:#f3c96a;--shadow:0 8px 22px #6d5d4830}*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:"Comic Sans MS","KaiTi","STKaiti",system-ui,sans-serif;background:#eee2ca;background-image:linear-gradient(90deg,transparent 48px,#e7aaa4 49px,#e7aaa4 51px,transparent 52px),repeating-linear-gradient(#0000 0 31px,var(--line) 32px),radial-gradient(#fff8 1px,transparent 1px);background-size:auto,auto,18px 18px;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1280px;margin:auto;padding:26px 26px 80px 72px}.top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:24px}.eyebrow{font-size:13px;letter-spacing:3px;color:#8c7e6d}.title{font-size:clamp(34px,5vw,62px);line-height:1;margin:7px 0 9px;transform:rotate(-1deg)}.subtitle{margin:0;color:#766c60}.date-note{background:#fff2a7;padding:16px 22px;box-shadow:var(--shadow);transform:rotate(2deg);min-width:180px;text-align:center;position:relative}.date-note:before,.tape{content:"";position:absolute;width:72px;height:22px;background:#b9d8c8bb;top:-11px;left:50%;transform:translateX(-50%) rotate(-3deg)}.date-note b{display:block;font-size:20px;margin-top:2px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 25px}.btn{border:2px solid var(--ink);background:var(--paper);padding:10px 15px;border-radius:7px;box-shadow:3px 3px 0 var(--ink);transition:.15s;display:inline-flex;align-items:center;gap:7px}.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}.btn.primary{background:var(--yellow)}.btn.green{background:#cfe2c7}.btn.red{background:#f2b0a7}.filters{display:grid;grid-template-columns:1fr 150px 150px;gap:10px;margin-bottom:20px}.field{width:100%;border:2px solid #7a7064;border-radius:7px;background:#fffdf7;padding:11px 13px;outline:none}.field:focus{box-shadow:0 0 0 3px #f3c96a77}.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:28px;align-items:start}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{position:relative;background:var(--paper);border:2px solid var(--ink);border-radius:4px;padding:10px;box-shadow:var(--shadow);transform:rotate(var(--tilt,0deg));transition:.2s;overflow:hidden}.card:nth-child(3n+1){--tilt:-.55deg}.card:nth-child(3n+2){--tilt:.45deg}.card:hover{transform:translateY(-3px) rotate(0);box-shadow:0 13px 26px #6d5d4840}.card.selected{outline:5px solid #f0c65d99}.photo{width:100%;aspect-ratio:4/3;object-fit:cover;border:1.5px solid var(--ink);display:block;background:#e9dec6}.check{position:absolute;top:17px;right:17px;width:30px;height:30px;border:2px solid var(--ink);border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:bold;z-index:2}.selected .check{background:var(--green);color:white}.card-body{padding:10px 4px 4px}.card-top{display:flex;justify-content:space-between;gap:8px;align-items:start}.card h3{font-size:20px;margin:0}.tag{white-space:nowrap;background:#f6dda3;padding:3px 8px;border-radius:3px;font-size:12px;transform:rotate(1deg)}.meta{font-size:13px;color:#776d61;margin:8px 0;line-height:1.55}.actions{display:flex;gap:7px}.mini{border:1.5px solid var(--ink);background:white;border-radius:5px;padding:5px 9px;font-size:12px}.board{position:sticky;top:20px;background:#fff7b9;border:2px solid var(--ink);box-shadow:var(--shadow);padding:24px 20px 20px;transform:rotate(.4deg);min-height:390px}.board:before{content:"";position:absolute;width:100px;height:24px;left:50%;top:-13px;transform:translateX(-50%) rotate(-2deg);background:#e9a7a0aa}.board h2{margin:0 0 5px;font-size:27px}.board .hint{font-size:13px;color:#7a6f62;margin:0 0 17px}.menu-list{display:grid;gap:10px}.menu-item{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;background:#fffdf4;border:1.5px dashed #746b61;padding:7px}.menu-item img{width:42px;height:42px;object-fit:cover;border-radius:50%}.menu-item b{font-size:15px}.empty{text-align:center;padding:45px 8px;color:#8d8172}.empty .bowl{font-size:52px;display:block}.board-footer{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}.count{display:inline-block;background:#ef8e82;color:white;border-radius:50%;min-width:24px;height:24px;line-height:24px;text-align:center;font-size:13px}.modal{position:fixed;inset:0;background:#322d285f;display:none;place-items:center;padding:20px;z-index:10}.modal.open{display:grid}.dialog{width:min(620px,100%);max-height:90vh;overflow:auto;background:var(--paper);border:3px solid var(--ink);box-shadow:9px 9px 0 #3f3a32;padding:24px;position:relative}.dialog h2{margin-top:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-grid .wide{grid-column:1/-1}.label{display:block;font-size:13px;margin-bottom:5px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:#3f3a32;color:white;padding:11px 18px;border-radius:6px;z-index:20;transition:.25s}.toast.show{transform:translate(-50%,0);opacity:1}.share-banner{display:none;background:#d8ebd3;border:2px dashed #587257;padding:13px 16px;margin-bottom:18px}.share-banner.show{display:flex;justify-content:space-between;gap:15px;align-items:center}.no-results{grid-column:1/-1;text-align:center;padding:70px 10px;color:#817566}@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.board{position:relative;top:auto}}@media(max-width:620px){.app{padding:20px 14px 90px 42px}.top{align-items:start}.date-note{display:none}.filters{grid-template-columns:1fr 1fr}.filters .search{grid-column:1/-1}.grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.title{font-size:39px}.board-footer{grid-template-columns:1fr}.btn{padding:9px 12px}}
+
+/* ===== Mobile UI V2 ===== */
+.mobile-bottom-nav{display:none}
+@media(max-width:620px){
+  body{background-image:repeating-linear-gradient(#0000 0 31px,var(--line) 32px),radial-gradient(#fff8 1px,transparent 1px)}
+  .app{padding:18px 14px 92px;max-width:none}
+  .top{margin-bottom:14px;display:block}
+  .eyebrow{font-size:10px;letter-spacing:2px}
+  .title{font-size:34px;margin:5px 0;transform:none}
+  .subtitle{font-size:13px;line-height:1.45}
+  .date-note{display:none}
+  .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+  .toolbar .btn{min-height:48px;justify-content:center;box-shadow:2px 2px 0 var(--ink);border-radius:12px;font-size:14px}
+  .toolbar .btn:nth-child(1),.toolbar .btn:nth-child(4),.toolbar .btn:nth-child(5){display:none}
+  .filters{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .filters .search{grid-column:1/-1}
+  .field{padding:10px 11px;border-radius:11px;font-size:14px;min-height:42px}
+  .layout{display:flex;flex-direction:column;gap:14px}
+  .layout>section{order:2}
+  .board{order:1;position:relative;top:auto;min-height:0;padding:17px 14px 14px;border-radius:13px;transform:none;box-shadow:4px 5px 0 #3f3a3222}
+  .board:before{width:74px;height:18px;top:-9px}
+  .board h2{font-size:21px}.board .hint{margin-bottom:10px;font-size:12px}
+  .menu-list{display:flex;overflow-x:auto;gap:8px;padding:2px 1px 6px;scrollbar-width:none}
+  .menu-list::-webkit-scrollbar{display:none}
+  .menu-item{flex:0 0 150px;grid-template-columns:36px 1fr auto;gap:6px;padding:6px;border-radius:8px}
+  .menu-item img{width:36px;height:36px}.menu-item b{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .empty{width:100%;padding:16px 6px;font-size:13px}.empty .bowl{font-size:34px}.board-footer{display:none}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:7px;border-radius:11px;transform:none!important;box-shadow:3px 4px 0 #3f3a3220}
+  .photo{aspect-ratio:1/1;border-radius:8px}
+  .check{top:11px;right:11px;width:27px;height:27px;font-size:13px}
+  .card-body{padding:7px 2px 2px}.card-top{display:block}
+  .card h3{font-size:15px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tag{display:inline-block;margin-top:5px;font-size:10px;padding:2px 6px}
+  .meta{font-size:11px;margin:6px 0;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:31px}
+  .actions{gap:5px}.mini{padding:4px 7px;font-size:10px;border-radius:6px}
+  .share-banner{font-size:12px;border-radius:10px;align-items:flex-start}
+  .dialog{width:calc(100vw - 24px);max-height:86vh;padding:18px 14px;border-radius:14px;box-shadow:5px 5px 0 #3f3a32}
+  .form-grid{grid-template-columns:1fr;gap:10px}.form-grid .wide{grid-column:auto}
+  .dialog-actions{position:sticky;bottom:0;background:var(--paper);padding-top:10px}.dialog-actions .btn{flex:1;justify-content:center}
+  .mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(3,1fr);left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:9;background:#fffdf7ee;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:2px solid var(--ink);border-radius:16px;box-shadow:0 8px 24px #3f3a3230;overflow:hidden}
+  .mobile-bottom-nav button{border:0;background:transparent;padding:9px 4px 8px;color:var(--ink);font-size:11px;line-height:1.2}
+  .mobile-bottom-nav button+button{border-left:1px dashed #b9aa98}
+  .mobile-bottom-nav span{display:block;font-size:19px;margin-bottom:2px}
+}
+
 </style>
 </head>
 <body>
@@ -20,6 +66,13 @@
 </main>
 <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle" onclick="if(event.target===this)closeForm()"><form id="recipeForm" class="dialog" onsubmit="saveRecipe(event)"><h2 id="formTitle">新增菜谱</h2><input id="editId" type="hidden"><div class="form-grid"><label><span class="label">菜名 *</span><input id="name" class="field" required maxlength="30"></label><label><span class="label">分类</span><select id="formCategory" class="field"><option>荤菜</option><option>素菜</option><option>汤羹</option><option>主食</option></select></label><label><span class="label">难度</span><select id="formDifficulty" class="field"><option>简单</option><option>普通</option><option>进阶</option></select></label><label><span class="label">图片网址（可选）</span><input id="image" class="field" type="url" placeholder="https://..."></label><label class="wide"><span class="label">食材（用顿号或逗号分隔） *</span><textarea id="ingredients" class="field" rows="3" required></textarea></label></div><div class="dialog-actions"><button type="button" class="btn" onclick="closeForm()">取消</button><button class="btn primary" type="submit">保存菜谱</button></div></form></div>
 <div id="toast" class="toast"></div>
+
+<nav class="mobile-bottom-nav" aria-label="手机快捷操作">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})"><span>🍱</span>菜谱</button>
+  <button onclick="document.querySelector('.board').scrollIntoView({behavior:'smooth',block:'start'})"><span>📝</span>今日菜单</button>
+  <button onclick="randomPick()"><span>🎲</span>随机点菜</button>
+</nav>
+
 <script>
 const STORAGE='family-menu-recipes-v4';const SELECTED='family-menu-selected-v4';
 const art=(name,color='#e8d6bd')=>`data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><rect width="640" height="480" fill="${color}"/><circle cx="320" cy="228" r="160" fill="#fff9ed" stroke="#4b4035" stroke-width="8"/><ellipse cx="320" cy="228" rx="125" ry="96" fill="#d68c55"/><text x="320" y="410" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#4b4035">${name}</text></svg>`)}`;
@@ -62,4 +115,3 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeForm()});docume
 </script>
 </body>
 </html>
-
